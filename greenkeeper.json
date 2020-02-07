@@ -1,0 +1,9 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "Role Management System/vendor/fontawesome-free/package.json"
+      ]
+    }
+  }
+}
