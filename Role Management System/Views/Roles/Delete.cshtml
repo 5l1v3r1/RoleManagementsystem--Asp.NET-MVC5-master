@@ -1,0 +1,53 @@
+﻿@model Role_Management_System.DataServices.webpages_Roles
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+
+    <!-- Custom fonts for this template-->
+    <link href="~/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template-->
+    <link href="~/css/sb-admin.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <h2>Rol Silme Onayı</h2>
+
+    <h3>Bu rolü silmek istediğinizden emin misiniz?</h3>
+    <div>
+        <h4>Rolü Sil</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.RoleName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RoleName)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Sil" class="btn btn-primary" />
+        <button type="reset" onclick="window.history.back();" class="btn btn-dark">Hayır, geri dön</button>
+    
+    </div>
+        }
+    </div>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+﻿@model  List<Role_Management_System.Models.UrunViewModel>
+@{
+    ViewBag.Title = "Ürünler";
+}
+
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <!-- Custom fonts for this template-->
+    <link href="~/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Page level plugin CSS-->
+    <link href="~/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="~/css/sb-admin.css" rel="stylesheet">
+  
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <div id="content-wrapper">
+
+            <div class="container-fluid">
+
+
+                <!-- DataTables Example -->
+                <div class="card mt-4 mb-3">
+                    <div class="card-header">
+                        <i class="fas fa-table"></i>
+                        Tedarikçi Listesi
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Stok Kodu</th>
+                                        <th>Ürün Adı</th>
+                                        <th>Varyasyon Özelliği</th>
+                                        <th>Marka</th>
+                                        <th>Kategori</th>
+                                        <th>Stok</th>
+                                        <th>Fiyatı</th>
+                                        @*<th>İşlemler</th>*@
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (WebSecurity.CurrentUserId == 1)
+                                    {
+                                        foreach (var emp in Model)
+                                        {
+                                            <tr>
+                                                <td>@emp.ID</td>
+                                                <td>@emp.StokKodu</td>
+                                                <td>@emp.UrunAdi</td>
+                                                <td>@emp.varAdi</td>
+                                                <td>@emp.Marka</td>
+                                                <td>@emp.Kategori</td>
+                                                <td class="text-center">
+                                                    <input type="number" name="urun_@emp.varID" id="urun_@emp.varID" min="1" max="10000" step="1" class="form-control" style="width:90px" onchange="updateItem(@emp.varID.ToString(), $(this).val())" value="@emp.StokAdedi" />
+                                                </td>
+                                                <td>@emp.Fiyat.ToString("F2")</td>
+                                                @*<td>
+                                                        <span>
+                                                            <a href="@Url.Action("Update", "Urun", new {id = emp.ID })">
+                                                                <i class="far fa-edit text-primary"></i>
+                                                            </a>
+                                                            &nbsp;&nbsp;
+                                                            <a href="@Url.Action("Delete", "Urun", new {id = emp.ID })">
+                                                                <i class="far fa-trash-alt text-danger"></i>
+                                                            </a>
+                                                        </span>
+                                                    </td>*@
+                                            </tr>
+                                        }
+                                    }
+                                    else
+                                    {
+
+                                        foreach (var emp in Model)
+                                        {
+                                            <tr>
+                                                <td>@emp.ID</td>
+                                                <td>@emp.StokKodu</td>
+                                                <td>@emp.UrunAdi</td>
+                                                <td>@emp.varAdi</td>
+                                                <td>@emp.Marka</td>
+                                                <td>@emp.Kategori</td>
+                                                <td>@emp.StokAdedi</td>
+                                                <td>@emp.Fiyat.ToString("F2")</td>
+                                                @*<td>
+                                                        <span>
+                                                            [İşlem Yapma Yetkisi Yok!]
+                                                        </span>
+                                                    </td>*@
+                                            </tr>
+                                        }
+                                    }
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                        <div>
+                            @*<a href="@Url.Action("Create","Employee")">
+                                    <button type="button" class="btn btn-outline-dark" style="margin-top:30px">
+                                        Güncelle
+                                    </button>
+
+                                </a>*@
+                        </div>
+                    </div>
+                    @*<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>*@
+                </div>
+            </div>
+        </div>
+        <!-- /.content-wrapper -->
+
+    </div>
+    <!-- Bootstrap core JavaScript-->
+    <script src="~/vendor/jquery/jquery.min.js"></script>
+    <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="~/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Page level plugin JavaScript-->
+    <script src="~/vendor/datatables/jquery.dataTables.js"></script>
+    <script src="~/vendor/datatables/dataTables.bootstrap4.js"></script>
+  
+    <!-- Custom scripts for all pages-->
+    <script src="~/js/sb-admin.min.js"></script>
+
+    <!-- Demo scripts for this page-->
+    @*<script src="~/js/demo/datatables-demo.js"></script>*@
+    <script type="text/javascript">
+        function updateItem(itemId, itemVal) {
+            var myToast = $.toast({
+                heading: 'Bilgi',
+                text: 'Ürünün stok miktarı güncelleniyor...',
+                icon: 'info',
+                hideAfter: false,
+                position: 'top-right',
+                stack: false
+            });
+
+         
+            $.post("/Urun/UrunStokUpdate", { urunVarId: itemId, urunStok: itemVal })
+                .done(function (data) {
+                    myToast.update({
+                        heading: 'Bilgi',
+                        text: ' data => ' + data,
+                        icon: 'Success',
+                        hideAfter: 6000,
+                        position: 'top-right',
+                        stack: false
+                    });
+                });
+        }
+    </script>
+</body>
+
+</html>

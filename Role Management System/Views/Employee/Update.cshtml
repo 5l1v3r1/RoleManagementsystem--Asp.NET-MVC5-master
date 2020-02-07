@@ -1,0 +1,89 @@
+﻿@model Role_Management_System.Models.Employee
+@{
+    ViewBag.Title = "Tedarikçi Güncelle";
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+
+    <!-- Custom fonts for this template-->
+    <link href="~/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template-->
+    <link href="~/css/sb-admin.css" rel="stylesheet">
+
+</head>
+
+<body class="page-top">
+
+
+
+    <div class="card mt-4 mb-3 ">
+        <div class="card-header">Tedarikçi Bilgileri</div>
+        <div class="card-body">
+
+
+            <form method="post">
+
+
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>İsim</label>
+                                <input class="form-control" value="@Model.Name" name="Name" type="text" required placeholder="Tedarikçi ismi yazınız" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Tedarikçi Ticimax Adresi</label>
+                                <input class="form-control" value="@Model.Department" name="Department" type="text" required placeholder="Tedarikçi Ticimax Adresi" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input class="form-control" value="@Model.Email" name="Email" type="email" required placeholder="Tedarikçi E-mail" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Şifre</label>
+                                <input class="form-control" value="@Model.Salary" name="Salary" type="password" required placeholder="Şifre" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Güncelle</button>
+                <button type="reset" onclick="window.history.back();" class="btn btn-dark">Hayır, geri dön</button>
+            </form>
+        </div>
+    </div>
+    <!-- Bootstrap core JavaScript-->
+    <script src="~/vendor/jquery/jquery.min.js"></script>
+    <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="~/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+</body>
+
+</html>
+
+

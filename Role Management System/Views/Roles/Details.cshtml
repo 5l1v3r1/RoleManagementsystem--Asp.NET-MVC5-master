@@ -1,0 +1,45 @@
+﻿@model Role_Management_System.DataServices.webpages_Roles
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+
+    <!-- Custom fonts for this template-->
+    <link href="~/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template-->
+    <link href="~/css/sb-admin.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <h2>Detaylar</h2>
+
+    <div>
+        <h4>Rol</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.RoleName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RoleName)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Düzenle", "Edit", new { id = Model.RoleId }) |
+        @Html.ActionLink("Rollere geri dön", "Index")
+    </p>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>

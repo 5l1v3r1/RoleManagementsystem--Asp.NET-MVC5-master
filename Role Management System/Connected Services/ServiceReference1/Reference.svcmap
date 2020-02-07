@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6f4e3bf4-2bce-4ecd-a259-6c5b3038d693" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://www.monorisa.com/servis/urunservis.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="UrunServis.xsd" MetadataType="Schema" ID="d85dd873-a39e-41fc-b3d9-a273dd1e2d88" SourceId="1" SourceUrl="http://www.monorisa.com/servis/UrunServis.svc?xsd=xsd4" />
+    <MetadataFile FileName="UrunServis.wsdl" MetadataType="Wsdl" ID="8907e33d-f2fa-4cfa-81a7-aed323c612b9" SourceId="1" SourceUrl="http://www.monorisa.com/servis/UrunServis.svc?wsdl" />
+    <MetadataFile FileName="UrunServis1.xsd" MetadataType="Schema" ID="0476b7bf-734f-4dd2-a1e9-a53d5a8ca7bf" SourceId="1" SourceUrl="http://www.monorisa.com/servis/UrunServis.svc?xsd=xsd3" />
+    <MetadataFile FileName="UrunServis2.xsd" MetadataType="Schema" ID="3fbf1dfa-7e5c-4c45-b395-78732745a2be" SourceId="1" SourceUrl="http://www.monorisa.com/servis/UrunServis.svc?xsd=xsd2" />
+    <MetadataFile FileName="UrunServis3.xsd" MetadataType="Schema" ID="107cf3ef-86f7-4230-83e0-fe2fd0e67c67" SourceId="1" SourceUrl="http://www.monorisa.com/servis/UrunServis.svc?xsd=xsd1" />
+    <MetadataFile FileName="UrunServis4.xsd" MetadataType="Schema" ID="455856a9-23ab-4d9d-a6bf-428bf9f2245c" SourceId="1" SourceUrl="http://www.monorisa.com/servis/UrunServis.svc?xsd=xsd0" />
+    <MetadataFile FileName="UrunServis.disco" MetadataType="Disco" ID="31c7e8c0-96a9-4ec1-a6c3-e5f5d77351a2" SourceId="1" SourceUrl="http://www.monorisa.com/servis/UrunServis.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
